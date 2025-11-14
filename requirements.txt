@@ -1,6 +1,6 @@
 albumentations==2.0.8
 moviepy==1.0.3
-numpy==2.3.3
+numpy>=2.0.0,<2.3.0
 opencv_python==4.12.0.88
 opencv_python_headless==4.12.0.88
 pandas==2.3.3
