@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  d3:
+    build:
+      context: ..
+      dockerfile: docker-shell/Dockerfile
+    image: d3:latest
+    container_name: d3-app
+    volumes:
+      - ..:/app
+      - /home/aisl/study/dataset:/app/dataset
+    environment:
+      - PYTHONUNBUFFERED=1
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    stdin_open: true
+    tty: true
+    command: /bin/bash
