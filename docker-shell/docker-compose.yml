@@ -9,6 +9,7 @@ services:
     container_name: d3-app
     volumes:
       - ..:/app
+      - /home/aisl/study/dataset:/app/dataset
     environment:
       - PYTHONUNBUFFERED=1
     deploy:
