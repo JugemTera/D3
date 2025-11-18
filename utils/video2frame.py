@@ -60,7 +60,9 @@ if __name__ == '__main__':
     print(f"Find {len(video_paths)} videos!")
     args_list = [(vp, dataset_path) for vp in video_paths]
 
-    with multiprocessing.Pool(processes=32) as pool:
+    num_processes = max(1, multiprocessing.cpu_count() // 2)
+    print(f"Using {num_processes} processes")
+    with multiprocessing.Pool(processes=num_processes) as pool:
         pool.starmap(process_video, args_list)
 
 

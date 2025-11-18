@@ -38,12 +38,9 @@ def main(is_real,dataset_path,folder_paths):
                 continue
 
             for frame in frame_paths:
-                content_path = frame.split('/')[1:-1]
-                content_path = '/'.join(content_path)
-                content_path = f'{dataset_path}/' + content_path
-                frame_path = frame.split('/')[1:]
-                frame_path = '/'.join(frame_path)
-                frame_path = f'{dataset_path}/' + frame_path
+                # Use absolute paths
+                content_path = os.path.abspath(video_path)
+                frame_path = os.path.abspath(frame)
 
                 print(content_path, frame_path)
                 if is_real == True:
